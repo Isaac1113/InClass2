@@ -23,3 +23,15 @@ PtrToEmployee searchEmployeeByName(PtrToConstEmployee ptr, int tableSize, char *
     }
     return NULL;
 }
+
+// Implementation to search by phone. Same functionality as search by name
+PtrToEmployee searchEmployeeByPhone(PtrToConstEmployee ptr, int talbeSize, char *targetPhone) {
+    const PtrToConstEmployee endPtr = ptr + talbeSize;
+
+    for (; ptr < endPtr; ptr++)
+    {
+        if (strcmp(ptr->phone, targetPhone)  == 0)
+            return (PtrToEmployee) ptr;
+    }
+    return NULL;
+}
