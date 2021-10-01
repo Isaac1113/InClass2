@@ -38,6 +38,11 @@ static int compareEmployeePhone(const void *targetPtr, PtrToConstEmployee tableV
     return strcmp((char *) targetPtr, tableValuePtr->phone);
 }
 
+static int compareEmployeeSalary(const void *targetPtr, PtrToConstEmployee tableValuePtr)
+{
+    return *(double *) targetPtr != tableValuePtr->salary;
+}
+
 //These are called wrappers. These functions are what you will use in main!!!
 PtrToEmployee searchEmployeeByNumber(PtrToConstEmployee ptr, int size, long number)
 {
