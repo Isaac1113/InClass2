@@ -35,3 +35,15 @@ PtrToEmployee searchEmployeeByPhone(PtrToConstEmployee ptr, int talbeSize, char 
     }
     return NULL;
 }
+
+// Implementation to search by salary. Same functionality as search by id
+PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int tableSize, double targetSalary) {
+    const PtrToConstEmployee endPtr = ptr + tableSize;
+
+    for (; ptr < endPtr; ptr++)
+    {
+        if (ptr->salary == targetSalary)
+            return (PtrToEmployee) ptr;
+    }
+    return NULL;
+}
