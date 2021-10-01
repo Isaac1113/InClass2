@@ -58,3 +58,8 @@ PtrToEmployee searchEmployeeByPhone(PtrToConstEmployee ptr, int size, char *phon
 {
     return searchEmployeeTable(ptr, size, phone, compareEmployeePhone);
 }
+
+PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int size, double salary)
+{
+    return searchEmployeeTable(ptr, size, &salary, compareEmployeeSalary);
+}
