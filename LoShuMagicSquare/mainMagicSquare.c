@@ -70,40 +70,7 @@ int main() {
         check = checkMagicSquare(randSqr);
     }
 
-    /*
-    // Shuffle the array by randomly swapping the elements in the array
-    for (int index = 0; index < 9; index++) {
-        int tempValue = nums[index];
-        int randIndex = rand() % 9;
-
-        // Swap the random elements
-        nums[index] = nums[randIndex];
-        nums[randIndex] = tempValue;
-    }
-
-    // Fill the random square with the radomized elements
-    for (int row = 0; row < ROWS; row++) {
-        for (int col = 0; col < COLS; col++) {
-            randSqr[row][col] = nums[traverse] + 1; // Add 1 to get 1 - 9
-            traverse++;
-        }
-    }
-    for (int row = 0; row < ROWS; row++) {
-        printf("[ ");
-        for (int col = 0; col < COLS; col++) {
-            printf("%d ", randSqr[row][col]);
-        }
-        printf("]\n");
-    }
-
-    check = checkMagicSquare(randSqr);
-    if (check == 1)
-        printf("randSqr is a magic square.\n");
-    else
-        printf("randSqr is not a magic square.\n");
-    */
-
-    printf("Total number of tries: %d\n", totalTries);
+    printf("Total number of tries for randSqr before success: %d\n", totalTries);
     for (int row = 0; row < ROWS; row++) {
         printf("[ ");
         for (int col = 0; col < COLS; col++) {
