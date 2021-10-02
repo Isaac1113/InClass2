@@ -45,7 +45,7 @@ int main() {
     for (int index = 0; index < 9; index++)
         nums[index] = index;
 
-    check = 5;
+    check = 0;
     while (check != 1) {
         // Shuffle the array by randomly swapping the elements in the array
         for (int index = 0; index < 9; index++) {
@@ -64,15 +64,10 @@ int main() {
                 traverse++;
             }
         }
-        for (int row = 0; row < ROWS; row++) {
-            printf("[ ");
-            for (int col = 0; col < COLS; col++) {
-                printf("%d ", randSqr[row][col]);
-            }
-            printf("]\n");
-        }
 
-        check--;
+        traverse = 0; // reset traverse for next traversal
+        totalTries++; // count amount of tries
+        check = checkMagicSquare(randSqr);
     }
 
     /*
@@ -107,6 +102,16 @@ int main() {
     else
         printf("randSqr is not a magic square.\n");
     */
+
+    printf("Total number of tries: %d\n", totalTries);
+    for (int row = 0; row < ROWS; row++) {
+        printf("[ ");
+        for (int col = 0; col < COLS; col++) {
+            printf("%d ", randSqr[row][col]);
+        }
+        printf("]\n");
+    }
+
     return EXIT_SUCCESS;
 }
 
