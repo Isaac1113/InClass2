@@ -30,30 +30,52 @@ int main() {
     else
         printf("sqr2 is not a magic square.\n");
 
-    // Create a square to be filled with random numbers
+    // Create a square, initialized to all 0s, to be filled with random numbers
     int randSqr[ROWS][COLS] = { 0 };
-    for (int row = 0; row < ROWS; row++) {
-        printf("[ ");
-        for (int col = 0; col < COLS; col++) {
-            printf("%d ", randSqr[row][col]);
-        }
-        printf("]\n");
-    }
 
-    int count = 0;
-
-    // Create array and set values to be values of index
-    int nums[9];
-    for (int index = 0; index < 9; index++)
-        nums[index] = index;
-    for (int index = 0; index < 9; index++) {
-        printf("%d ", nums[index]);
-    }
+    int totalTries = 0;
+    int traverse = 0;
 
     // Initialize the random number generator
     time_t t;
     srand((unsigned) time(&t));
 
+    // Create array and set values to be values of index 0 - 8
+    int nums[9];
+    for (int index = 0; index < 9; index++)
+        nums[index] = index;
+
+    check = 5;
+    while (check != 1) {
+        // Shuffle the array by randomly swapping the elements in the array
+        for (int index = 0; index < 9; index++) {
+            int tempValue = nums[index];
+            int randIndex = rand() % 9;
+
+            // Swap the random elements
+            nums[index] = nums[randIndex];
+            nums[randIndex] = tempValue;
+        }
+
+        // Fill the random square with the radomized elements
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLS; col++) {
+                randSqr[row][col] = nums[traverse] + 1; // Add 1 to get 1 - 9
+                traverse++;
+            }
+        }
+        for (int row = 0; row < ROWS; row++) {
+            printf("[ ");
+            for (int col = 0; col < COLS; col++) {
+                printf("%d ", randSqr[row][col]);
+            }
+            printf("]\n");
+        }
+
+        check--;
+    }
+
+    /*
     // Shuffle the array by randomly swapping the elements in the array
     for (int index = 0; index < 9; index++) {
         int tempValue = nums[index];
@@ -63,17 +85,12 @@ int main() {
         nums[index] = nums[randIndex];
         nums[randIndex] = tempValue;
     }
-    printf("\n");
-    for (int index = 0; index < 9; index++) {
-        printf("%d ", nums[index]);
-    }
 
-    printf("\n");
     // Fill the random square with the radomized elements
     for (int row = 0; row < ROWS; row++) {
         for (int col = 0; col < COLS; col++) {
-            randSqr[row][col] = nums[count] + 1;
-            count++;
+            randSqr[row][col] = nums[traverse] + 1; // Add 1 to get 1 - 9
+            traverse++;
         }
     }
     for (int row = 0; row < ROWS; row++) {
@@ -89,7 +106,7 @@ int main() {
         printf("randSqr is a magic square.\n");
     else
         printf("randSqr is not a magic square.\n");
-
+    */
     return EXIT_SUCCESS;
 }
 
